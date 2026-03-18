@@ -10,7 +10,7 @@ body {
 .container {
     height: 100vh;
     overflow-y: scroll;
-    scroll-snap-type: y mandatory; /* Membuat efek slide */
+    scroll-snap-type: y mandatory;
 }
 
 .slide {
@@ -25,12 +25,10 @@ body {
     text-align: center;
 }
 
-/* Background Slide (Sesuaikan warnanya) */
 .slide-1 { background: linear-gradient(#ff9a9e, #fad0c4); }
 .slide-2 { background: linear-gradient(#a18cd1, #fbc2eb); }
 .slide-3 { background: #fff5f7; color: #333; justify-content: flex-start; padding-top: 50px; }
 
-/* Galeri Slide 3 */
 .gallery-container { width: 100%; max-width: 400px; margin-bottom: 20px; }
 
 .main-photo img {
@@ -55,7 +53,6 @@ body {
     border-radius: 8px;
 }
 
-/* Dropdown */
 .message-dropdown {
     width: 100%;
     max-width: 400px;
@@ -67,7 +64,6 @@ body {
 
 .dropdown-content { padding-top: 15px; text-align: left; font-size: 0.9em; line-height: 1.6; }
 
-/* Modal */
 .modal {
     position: fixed; z-index: 99; left: 0; top: 0; width: 100%; height: 100%;
     background: rgba(0,0,0,0.9); display: flex; align-items: center; justify-content: center;
@@ -80,8 +76,6 @@ body {
     background: #ff9a9e; color: white; font-weight: bold;
 }
 
-/* --- Tambahan Styling untuk Balon & Animasi --- */
-
 #balloon-container {
     position: fixed;
     top: 0;
@@ -89,13 +83,13 @@ body {
     width: 100vw;
     height: 100vh;
     overflow: hidden;
-    z-index: -1; /* Berada di belakang konten */
-    pointer-events: none; /* Agar tidak mengganggu klik */
+    z-index: -1;
+    pointer-events: none;
 }
 
 .balloon {
     position: absolute;
-    bottom: -100px; /* Mulai dari luar layar bawah */
+    bottom: -100px;
     width: 50px;
     height: 70px;
     border-radius: 50%;
@@ -103,7 +97,6 @@ body {
     animation: floatUp 8s linear infinite;
 }
 
-/* Membuat ekor balon */
 .balloon::after {
     content: "▲";
     position: absolute;
@@ -114,7 +107,6 @@ body {
     color: inherit;
 }
 
-/* Keyframes untuk Balon Mengambang */
 @keyframes floatUp {
     0% {
         transform: translateY(0) rotate(0deg);
@@ -124,14 +116,12 @@ body {
         opacity: 0.7;
     }
     100% {
-        transform: translateY(-110vh) rotate(20deg); /* Bergerak ke atas */
+        transform: translateY(-110vh) rotate(20deg);
         opacity: 0;
     }
 }
 
-/* --- Kelas Animasi Teks & Elemen --- */
 
-/* Efek Pop Up (untuk Judul) */
 .text-pop {
     animation: textPop 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275) both;
 }
@@ -141,7 +131,6 @@ body {
     100% { transform: scale(1); opacity: 1; }
 }
 
-/* Efek Fade In & Slide Up (untuk Teks Biasa & Foto) */
 .fade-in {
     animation: fadeInSlide 1s ease-out both;
 }
@@ -151,7 +140,6 @@ body {
     100% { transform: translateY(0); opacity: 1; }
 }
 
-/* Efek Emoji Melayang Pelan */
 .emoji-float {
     font-size: 4rem;
     display: inline-block;
@@ -163,13 +151,11 @@ body {
     50% { transform: translateY(-15px) rotate(5deg); }
 }
 
-/* Emoji di Modal */
 .emoji-pop {
     font-size: 3rem;
     animation: textPop 1s infinite alternate;
 }
 
-/* Perbaikan Modal Styling agar lebih menarik */
 .modal-content {
     border: 4px solid #ff9a9e;
     box-shadow: 0 15px 30px rgba(0,0,0,0.2);
