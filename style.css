@@ -1,0 +1,183 @@
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+    background-color: #1a1a1a;
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    overflow-x: hidden;
+}
+
+.container {
+    height: 100vh;
+    overflow-y: scroll;
+    scroll-snap-type: y mandatory; /* Membuat efek slide */
+}
+
+.slide {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    scroll-snap-align: start;
+    padding: 20px;
+    text-align: center;
+}
+
+/* Background Slide (Sesuaikan warnanya) */
+.slide-1 { background: linear-gradient(#ff9a9e, #fad0c4); }
+.slide-2 { background: linear-gradient(#a18cd1, #fbc2eb); }
+.slide-3 { background: #fff5f7; color: #333; justify-content: flex-start; padding-top: 50px; }
+
+/* Galeri Slide 3 */
+.gallery-container { width: 100%; max-width: 400px; margin-bottom: 20px; }
+
+.main-photo img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+.grid-photos {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.small-img {
+    width: 100%;
+    aspect-ratio: 1;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+/* Dropdown */
+.message-dropdown {
+    width: 100%;
+    max-width: 400px;
+    background: white;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+.dropdown-content { padding-top: 15px; text-align: left; font-size: 0.9em; line-height: 1.6; }
+
+/* Modal */
+.modal {
+    position: fixed; z-index: 99; left: 0; top: 0; width: 100%; height: 100%;
+    background: rgba(0,0,0,0.9); display: flex; align-items: center; justify-content: center;
+}
+
+.modal-content { background: white; color: black; padding: 30px; border-radius: 20px; text-align: center; }
+
+.modal-content button {
+    padding: 10px 20px; margin: 10px; border: none; border-radius: 5px; cursor: pointer;
+    background: #ff9a9e; color: white; font-weight: bold;
+}
+
+/* --- Tambahan Styling untuk Balon & Animasi --- */
+
+#balloon-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    z-index: -1; /* Berada di belakang konten */
+    pointer-events: none; /* Agar tidak mengganggu klik */
+}
+
+.balloon {
+    position: absolute;
+    bottom: -100px; /* Mulai dari luar layar bawah */
+    width: 50px;
+    height: 70px;
+    border-radius: 50%;
+    opacity: 0.7;
+    animation: floatUp 8s linear infinite;
+}
+
+/* Membuat ekor balon */
+.balloon::after {
+    content: "▲";
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 10px;
+    color: inherit;
+}
+
+/* Keyframes untuk Balon Mengambang */
+@keyframes floatUp {
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 0;
+    }
+    10% {
+        opacity: 0.7;
+    }
+    100% {
+        transform: translateY(-110vh) rotate(20deg); /* Bergerak ke atas */
+        opacity: 0;
+    }
+}
+
+/* --- Kelas Animasi Teks & Elemen --- */
+
+/* Efek Pop Up (untuk Judul) */
+.text-pop {
+    animation: textPop 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275) both;
+}
+
+@keyframes textPop {
+    0% { transform: scale(0.5); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+/* Efek Fade In & Slide Up (untuk Teks Biasa & Foto) */
+.fade-in {
+    animation: fadeInSlide 1s ease-out both;
+}
+
+@keyframes fadeInSlide {
+    0% { transform: translateY(20px); opacity: 0; }
+    100% { transform: translateY(0); opacity: 1; }
+}
+
+/* Efek Emoji Melayang Pelan */
+.emoji-float {
+    font-size: 4rem;
+    display: inline-block;
+    animation: emojiFloat 3s ease-in-out infinite;
+}
+
+@keyframes emojiFloat {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-15px) rotate(5deg); }
+}
+
+/* Emoji di Modal */
+.emoji-pop {
+    font-size: 3rem;
+    animation: textPop 1s infinite alternate;
+}
+
+/* Perbaikan Modal Styling agar lebih menarik */
+.modal-content {
+    border: 4px solid #ff9a9e;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+}
+
+.modal-buttons {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
